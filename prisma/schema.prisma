@@ -1,0 +1,138 @@
+// Prisma Schema for Absensi QR (PostgreSQL / Supabase compatible)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Jurusan {
+  id        Int      @id @default(autoincrement())
+  jurusan   String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  kelas     Kelas[]
+
+  @@map("tb_jurusan")
+}
+
+model Kelas {
+  id        Int      @id @default(autoincrement()) @map("id_kelas")
+  kelas     String
+  idJurusan Int      @map("id_jurusan")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  jurusan   Jurusan  @relation(fields: [idJurusan], references: [id], onDelete: Cascade)
+  siswa     Siswa[]
+  presensi  PresensiSiswa[]
+
+  @@map("tb_kelas")
+}
+
+model Kehadiran {
+  id            Int             @id @map("id_kehadiran")
+  kehadiran     String          // 'Hadir', 'Sakit', 'Izin', 'Tanpa keterangan'
+  presensiGuru  PresensiGuru[]
+  presensiSiswa PresensiSiswa[]
+
+  @@map("tb_kehadiran")
+}
+
+model Guru {
+  id           Int            @id @default(autoincrement()) @map("id_guru")
+  nuptk        String         @unique
+  namaGuru     String         @map("nama_guru")
+  jenisKelamin String         @map("jenis_kelamin") // 'Laki-laki', 'Perempuan'
+  alamat       String
+  noHp         String         @map("no_hp")
+  uniqueCode   String         @unique @map("unique_code")
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @updatedAt @map("updated_at")
+
+  presensi     PresensiGuru[]
+
+  @@map("tb_guru")
+}
+
+model Siswa {
+  id           Int             @id @default(autoincrement()) @map("id_siswa")
+  nis          String          @unique
+  namaSiswa    String          @map("nama_siswa")
+  idKelas      Int             @map("id_kelas")
+  jenisKelamin String          @map("jenis_kelamin") // 'Laki-laki', 'Perempuan'
+  noHp         String          @map("no_hp")
+  uniqueCode   String          @unique @map("unique_code")
+  createdAt    DateTime        @default(now()) @map("created_at")
+  updatedAt    DateTime        @updatedAt @map("updated_at")
+
+  kelas        Kelas           @relation(fields: [idKelas], references: [id], onDelete: Cascade)
+  presensi     PresensiSiswa[]
+
+  @@map("tb_siswa")
+}
+
+model PresensiGuru {
+  id          Int       @id @default(autoincrement()) @map("id_presensi")
+  idGuru      Int?      @map("id_guru")
+  tanggal     String    // YYYY-MM-DD
+  jamMasuk    String?   @map("jam_masuk")
+  jamKeluar   String?   @map("jam_keluar")
+  idKehadiran Int       @map("id_kehadiran")
+  keterangan  String    @default("")
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  guru        Guru?     @relation(fields: [idGuru], references: [id], onDelete: SetNull)
+  kehadiran   Kehadiran @relation(fields: [idKehadiran], references: [id])
+
+  @@map("tb_presensi_guru")
+}
+
+model PresensiSiswa {
+  id          Int       @id @default(autoincrement()) @map("id_presensi")
+  idSiswa     Int       @map("id_siswa")
+  idKelas     Int?      @map("id_kelas")
+  tanggal     String    // YYYY-MM-DD
+  jamMasuk    String?   @map("jam_masuk")
+  jamKeluar   String?   @map("jam_keluar")
+  idKehadiran Int       @map("id_kehadiran")
+  keterangan  String    @default("")
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  siswa       Siswa     @relation(fields: [idSiswa], references: [id], onDelete: Cascade)
+  kelas       Kelas?    @relation(fields: [idKelas], references: [id], onDelete: SetNull)
+  kehadiran   Kehadiran @relation(fields: [idKehadiran], references: [id])
+
+  @@map("tb_presensi_siswa")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  username     String   @unique
+  passwordHash String   @map("password_hash")
+  isSuperadmin Boolean  @default(false) @map("is_superadmin")
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model GeneralSetting {
+  id               Int     @id @default(1)
+  logo             String?
+  schoolName       String  @default("SMK 1 Indonesia") @map("school_name")
+  schoolYear       String  @default("2024/2025") @map("school_year")
+  copyright        String  @default("© 2025 All rights reserved.")
+  jamMasukMulai    String  @default("06:00") @map("jam_masuk_mulai")
+  jamMasukSelesai  String  @default("07:15") @map("jam_masuk_selesai")
+  jamPulangMulai   String  @default("15:00") @map("jam_pulang_mulai")
+  jamPulangSelesai String  @default("17:00") @map("jam_pulang_selesai")
+
+  @@map("general_settings")
+}

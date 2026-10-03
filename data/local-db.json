@@ -1,0 +1,280 @@
+{
+  "settings": {
+    "id": 1,
+    "logo": null,
+    "schoolName": "SMK 1 Indonesia",
+    "schoolYear": "2024/2025",
+    "copyright": "© 2025 All rights reserved.",
+    "jamMasukMulai": "06:00",
+    "jamMasukSelesai": "07:15",
+    "jamPulangMulai": "15:00",
+    "jamPulangSelesai": "17:00"
+  },
+  "jurusan": [
+    {
+      "id": 1,
+      "jurusan": "RPL (Rekayasa Perangkat Lunak)"
+    },
+    {
+      "id": 2,
+      "jurusan": "TKJ (Teknik Komputer & Jaringan)"
+    },
+    {
+      "id": 3,
+      "jurusan": "AKL (Akuntansi & Keuangan)"
+    },
+    {
+      "id": 4,
+      "jurusan": "OTKP (Otomatisasi Tata Kelola Perkantoran)"
+    }
+  ],
+  "kelas": [
+    {
+      "id": 1,
+      "kelas": "X RPL 1",
+      "idJurusan": 1
+    },
+    {
+      "id": 2,
+      "kelas": "XI RPL 1",
+      "idJurusan": 1
+    },
+    {
+      "id": 3,
+      "kelas": "XII RPL 1",
+      "idJurusan": 1
+    },
+    {
+      "id": 4,
+      "kelas": "X TKJ 1",
+      "idJurusan": 2
+    },
+    {
+      "id": 5,
+      "kelas": "XI TKJ 1",
+      "idJurusan": 2
+    }
+  ],
+  "siswa": [
+    {
+      "id": 1,
+      "nis": "2024001",
+      "namaSiswa": "Ahmad Rizky Pratama",
+      "idKelas": 1,
+      "jenisKelamin": "Laki-laki",
+      "noHp": "081234567890",
+      "uniqueCode": "siswa-ahmad-2024001"
+    },
+    {
+      "id": 2,
+      "nis": "2024002",
+      "namaSiswa": "Siti Nurhaliza",
+      "idKelas": 1,
+      "jenisKelamin": "Perempuan",
+      "noHp": "081234567891",
+      "uniqueCode": "siswa-siti-2024002"
+    },
+    {
+      "id": 3,
+      "nis": "2024003",
+      "namaSiswa": "Budi Santoso",
+      "idKelas": 2,
+      "jenisKelamin": "Laki-laki",
+      "noHp": "081234567892",
+      "uniqueCode": "siswa-budi-2024003"
+    },
+    {
+      "id": 4,
+      "nis": "2024004",
+      "namaSiswa": "Dewi Anggraini",
+      "idKelas": 4,
+      "jenisKelamin": "Perempuan",
+      "noHp": "081234567893",
+      "uniqueCode": "siswa-dewi-2024004"
+    }
+  ],
+  "guru": [
+    {
+      "id": 1,
+      "nuptk": "198501012010011001",
+      "namaGuru": "Dr. Hendra Wijaya, M.Pd.",
+      "jenisKelamin": "Laki-laki",
+      "alamat": "Jl. Pendidikan No. 12, Bandung",
+      "noHp": "08119876543",
+      "uniqueCode": "guru-hendra-198501"
+    },
+    {
+      "id": 2,
+      "nuptk": "198805122015022002",
+      "namaGuru": "Sri Wahyuni, S.Kom.",
+      "jenisKelamin": "Perempuan",
+      "alamat": "Jl. Merdeka No. 45, Bandung",
+      "noHp": "08129876544",
+      "uniqueCode": "guru-sri-198805"
+    }
+  ],
+  "presensiSiswa": [
+    {
+      "id": 1,
+      "idSiswa": 1,
+      "idKelas": 1,
+      "tanggal": "2026-10-02",
+      "jamMasuk": "07:28:15",
+      "jamKeluar": "15:05:00",
+      "idKehadiran": 1,
+      "keterangan": "Terlambat 13 menit"
+    },
+    {
+      "id": 2,
+      "idSiswa": 2,
+      "idKelas": 1,
+      "tanggal": "2026-10-05",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 2,
+      "keterangan": "Pengajuan Sakit Online disetujui: Demam tinggi dan istirahat dokter"
+    },
+    {
+      "id": 3,
+      "idSiswa": 2,
+      "idKelas": 1,
+      "tanggal": "2026-10-06",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 2,
+      "keterangan": "Pengajuan Sakit Online disetujui: Demam tinggi dan istirahat dokter"
+    },
+    {
+      "id": 4,
+      "idSiswa": 3,
+      "idKelas": 2,
+      "tanggal": "2026-09-28",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 4,
+      "keterangan": "Tanpa Keterangan (Alfa)"
+    },
+    {
+      "id": 5,
+      "idSiswa": 3,
+      "idKelas": 2,
+      "tanggal": "2026-09-29",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 4,
+      "keterangan": "Tanpa Keterangan (Alfa)"
+    },
+    {
+      "id": 6,
+      "idSiswa": 3,
+      "idKelas": 2,
+      "tanggal": "2026-10-01",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 4,
+      "keterangan": "Tanpa Keterangan (Alfa)"
+    },
+    {
+      "id": 7,
+      "idSiswa": 4,
+      "idKelas": 4,
+      "tanggal": "2026-09-22",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 4,
+      "keterangan": "Tanpa Keterangan (Alfa)"
+    },
+    {
+      "id": 8,
+      "idSiswa": 4,
+      "idKelas": 4,
+      "tanggal": "2026-09-23",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 4,
+      "keterangan": "Tanpa Keterangan (Alfa)"
+    },
+    {
+      "id": 9,
+      "idSiswa": 4,
+      "idKelas": 4,
+      "tanggal": "2026-09-24",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 4,
+      "keterangan": "Tanpa Keterangan (Alfa)"
+    },
+    {
+      "id": 10,
+      "idSiswa": 4,
+      "idKelas": 4,
+      "tanggal": "2026-09-25",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 4,
+      "keterangan": "Tanpa Keterangan (Alfa)"
+    },
+    {
+      "id": 11,
+      "idSiswa": 4,
+      "idKelas": 4,
+      "tanggal": "2026-09-30",
+      "jamMasuk": null,
+      "jamKeluar": null,
+      "idKehadiran": 4,
+      "keterangan": "Tanpa Keterangan (Alfa)"
+    }
+  ],
+  "presensiGuru": [],
+  "users": [
+    {
+      "id": 1,
+      "email": "adminsuper@gmail.com",
+      "username": "superadmin",
+      "passwordHash": "$2b$10$wE9qW3/n2W6N6Yh7sYw3e.Fm8H1Kj2cK7kM7j0D5oB1t9zXwYq4a6",
+      "isSuperadmin": true,
+      "active": true
+    },
+    {
+      "id": 2,
+      "email": "petugas@gmail.com",
+      "username": "petugas",
+      "passwordHash": "$2b$10$wE9qW3/n2W6N6Yh7sYw3e.Fm8H1Kj2cK7kM7j0D5oB1t9zXwYq4a6",
+      "isSuperadmin": false,
+      "active": true
+    }
+  ],
+  "pengajuanIzin": [
+    {
+      "id": 1,
+      "idSiswa": 2,
+      "namaSiswa": "Siti Nurhaliza",
+      "nis": "2024002",
+      "kelas": "X RPL 1",
+      "jurusan": "RPL (Rekayasa Perangkat Lunak)",
+      "tipe": "Sakit",
+      "tanggalMulai": "2026-10-03",
+      "tanggalSelesai": "2026-10-03",
+      "alasan": "Demam tinggi",
+      "status": "Disetujui",
+      "createdAt": "2026-10-03T01:29:34.165Z",
+      "catatanAdmin": ""
+    },
+    {
+      "id": 2,
+      "idSiswa": 2,
+      "namaSiswa": "Siti Nurhaliza",
+      "nis": "2024002",
+      "kelas": "X RPL 1",
+      "jurusan": "RPL (Rekayasa Perangkat Lunak)",
+      "tipe": "Sakit",
+      "tanggalMulai": "2026-10-05",
+      "tanggalSelesai": "2026-10-06",
+      "alasan": "Demam tinggi dan istirahat dokter",
+      "lampiranUrl": "data:text/plain;base64,VGVzdA==",
+      "status": "Disetujui",
+      "createdAt": "2026-10-03T01:30:35.682Z",
+      "catatanAdmin": "Semoga lekas sembuh, surat dokter telah diverifikasi."
+    }
+  ]
+}
